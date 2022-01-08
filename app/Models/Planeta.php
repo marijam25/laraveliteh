@@ -11,6 +11,13 @@ class Planeta extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ime',
+        'oznaka',
+        'temperatura',
+        'galak_id'
+    ];
+
     public function galaksija()
     {
         return $this->belongsTo(Galaksija::class);

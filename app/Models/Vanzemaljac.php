@@ -10,6 +10,15 @@ class Vanzemaljac extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'ime',
+        'boja',
+        'visina',
+        'tezina',
+        'planeta_id'
+    ];
+
     public function planeta()
     {
         return $this->belongsTo(Planeta::class);

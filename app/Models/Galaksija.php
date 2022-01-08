@@ -10,6 +10,13 @@ class Galaksija extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ime',
+        'oznaka',
+        'broj_planeta',
+        'udaljenost_zemlja'
+    ];
+
     public function planete()
     {
         return $this->hasMany(Planeta::class);

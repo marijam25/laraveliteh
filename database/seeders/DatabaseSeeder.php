@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\PlanetaSeeder;
+use Database\Seeders\GalakasijaSeeder;
+use Database\Seeders\VanzemaljacSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $gal = new GalakasijaSeeder();
+        $pla = new PlanetaSeeder();
+        $van = new VanzemaljacSeeder();
+
+        $gal->run();
+        $pla->run();
+        $van->run();
     }
 }
