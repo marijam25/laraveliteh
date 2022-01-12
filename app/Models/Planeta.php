@@ -15,7 +15,7 @@ class Planeta extends Model
         'ime',
         'oznaka',
         'temperatura',
-        'galak_id'
+        'galaksija_id'
     ];
 
     public function galaksija()
