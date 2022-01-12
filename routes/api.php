@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthentificationController;
 use App\Http\Controllers\API\GalaksijaController;
 use App\Http\Controllers\API\PlanetaController;
 use Illuminate\Http\Request;
@@ -16,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::post('register', [AuthentificationController::class, 'register']);
+Route::post('login', [AuthentificationController::class, 'login']);
 Route::get('galaksija', [GalaksijaController::class, 'index']);
 Route::get('galaksija/{galaksija}', [GalaksijaController::class, 'show']);
-Route::delete('galaksija/{galaksija}', [GalaksijaController::class, 'destroy']);
-
 Route::get('planeta', [PlanetaController::class, 'index']);
-Route::delete('planeta/{planeta}', [PlanetaController::class, 'destroy']);
-Route::post('planeta', [PlanetaController::class, 'store']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::delete('galaksija/{galaksija}', [GalaksijaController::class, 'destroy']);
+    Route::delete('planeta/{planeta}', [PlanetaController::class, 'destroy']);
+    Route::post('planeta', [PlanetaController::class, 'store']);
+    Route::post('logout', [AuthentificationController::class, 'logout']);
 });
