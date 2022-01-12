@@ -18,7 +18,7 @@ class PlanetaFactory extends Factory
             'ime' => $this->faker->word(),
             'oznaka' => $this->faker->stateAbbr(),
             'temperatura' => $this->faker->numberBetween($min = -500, $max = 500),
-            'galak_id' => Galaksija::factory()
+            'galaksija_id' => Galaksija::factory()
         ];
     }
 }

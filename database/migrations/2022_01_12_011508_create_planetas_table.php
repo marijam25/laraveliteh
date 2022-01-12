@@ -18,8 +18,8 @@ class CreatePlanetasTable extends Migration
             $table->string('ime');
             $table->string('oznaka');
             $table->bigInteger('tezina');
-            $table->integer('temeperatura');
-            $table->foreignId('galak_id')->constrained('galaksijas');
+            $table->integer('temperatura');
+            $table->foreignId('galaksija_id')->constrained('galaksijas');
             $table->timestamps();
         });
     }
